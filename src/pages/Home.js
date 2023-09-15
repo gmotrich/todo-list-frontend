@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+/*import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link} from 'react-router-dom'
 
@@ -30,8 +30,7 @@ export default function Home() {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Firstname</th>
-                            <th scope="col">Lastname</th>
+                            <th scope="col">Username</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -40,8 +39,7 @@ export default function Home() {
                             users.map((user, index) => (
                                 <tr>
                                     <th scope="row" key={index}>{index + 1}</th>
-                                    <td>{user.firstname}</td>
-                                    <td>{user.lastname}</td>
+                                    <td>{user.username}</td>
                                     <td>
                                         <Link className="btn btn-outline-primary mx-2"
                                             to={`/viewuser/${user.id}`}
@@ -61,4 +59,23 @@ export default function Home() {
             </div>
         </div>
     )
+}*/
+
+import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
+export default function Home() {
+    const navigate = useNavigate();
+
+    const transitionHandle = () => {
+        navigate(`/dashboard`);
+        window.location.reload();
+    };
+
+    return (
+        <div className="container">
+            <h2>Welcome to the to-do list!</h2>
+            <Link className="btn btn-outline-primary mx-2" onClick={transitionHandle}>Go To The Taskbar</Link>
+        </div>
+    );
 }
